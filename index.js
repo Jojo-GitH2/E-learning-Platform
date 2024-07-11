@@ -1,20 +1,12 @@
 
 const express = require("express")
 const dotenv = require("dotenv").config()
-const connectDB= require("./db/dbFile")
-
-
-
-
-
-
-
-//const mongoose= require("mongoose")
-
-
-
+const connectDB = require("./config/db")
+const authRoutes = require("./routes/authRoutes")
 
 const app = express()
+app.use(express.json())
+
 
 const PORT = process.env.PORT || 8000
 
@@ -24,19 +16,21 @@ connectDB()
 
 //mongoose.connect(process.env.MONGODB_URL)
 //.then (()=>{
-    //console.log("mongodb connected");
+//console.log("mongodb connected");
 //})
 //.catch((error)=>{
-    //console.log("error");
+//console.log("error");
 //})
 
 
-app.listen(PORT, ()=>(
+app.listen(PORT, () => (
     console.log(`Server running on ${PORT}`)
 ))
 
-app.get ("/", (req,res)=>{
-    return res.status(200).json({message: "Welcome to my school E-learning Platfor"})
+app.get("/", (req, res) => {
+    return res.status(200).json({ message: "Welcome to my school E-learning Platform" })
 })
 
-app
+// Routes for Users
+
+app.use("/api/v1/users", authRoutes);
