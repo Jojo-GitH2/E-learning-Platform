@@ -1,11 +1,11 @@
 // Description: This file contains the logic for handling the user signup and login requests.
-const authServices = require("../services/authService");
+const authService = require("../services/authService");
 
 const handleSignUp = async (req, res) => {
     try {
         const { fullName, email, password, phoneNumber } =  req.body;
 
-        const newUser = await authServices.signup({
+        const newUser = await authService.signup({
             fullName,
             email,
             password,
@@ -19,10 +19,27 @@ const handleSignUp = async (req, res) => {
                 message: "User created successfully"
             });
     } catch (error) {
-
         return res.status(400).json({ error});
     }
 };
 
+const handleVerifyEmail = async (req, res) => {
+    try {
+        const { token } = req.params;
 
-module.exports = { handleSignUp };
+        // console.log(token);
+        
+        const user = await authService.verifyEmail(token);
+        return res.status(200).json({ message: "User verified successfully", user });
+    
+    } catch (error) {
+        // console.log(error.message);
+        return res.status(404).json({ error: error.message });
+    }
+}
+
+
+module.exports = {
+    handleSignUp, 
+    handleVerifyEmail
+ };
