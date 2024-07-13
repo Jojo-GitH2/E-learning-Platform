@@ -47,7 +47,7 @@ const signup = async (userData) => {
 
         // Send verification email
 
-        const verificationLink = `${process.env.BASE_URL}/api/v1/users/verify-email?token=${token.token}`
+        const verificationLink = `${process.env.BASE_URL}/api/v1/users/verify-email/${token.token}`
         const emailTemplate = fs.readFileSync('./templates/verifyEmail.html', 'utf-8');
         let emailContent = emailTemplate.replace('{{verificationLink}}', verificationLink);
         emailContent = emailContent.replace('{{fullName}}', savedUser.fullName);
@@ -94,6 +94,19 @@ const verifyEmail = async (token) => {
         // console.log(error);
         throw error;
     }
+}
+
+const login = async (userData) => {
+    try {
+        const { email, password } = userData;
+
+        // Check if user exists
+        const user = await User.findOne({ email });
+    }
+    catch (error) {
+        throw error;
+    }
+
 }
 
 module.exports = {

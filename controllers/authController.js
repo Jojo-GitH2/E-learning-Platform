@@ -39,6 +39,16 @@ const handleVerifyEmail = async (req, res) => {
 }
 
 
+// Handle login
+const handleLogin = async (req, res) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+
+}   
+
 module.exports = {
     handleSignUp, 
     handleVerifyEmail
