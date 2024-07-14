@@ -3,23 +3,23 @@ const { handleAuthValidation } = require('../utils/validation');
 const helper = require('../utils/helper');
 const Token = require('../models/Token');
 const fs = require('fs');
-const {sendEmail} = require('../services/emailService');
+const { sendEmail } = require('../services/emailService');
 
 const signup = async (userData) => {
     try {
 
         // Check if email already exists
         const userExists = await User.findOne({
-           
-                email: userData.email
+
+            email: userData.email
         });
 
-        
+
 
         if (userExists) {
             throw new Error(
                 "11000"
-                )
+            )
         };
 
 
@@ -77,20 +77,28 @@ const verifyEmail = async (token) => {
             throw new Error('Invalid verification link');
         }
 
-        const user = await User.findById(tokenExists.userId);
+        const user = await User.findOneAndUpdate(
+            {
+                _id:
+                    tokenExists.userId
+            },
+            {
+                $set:
+                    { verified: true }
+            });
 
         if (!user) {
             throw new Error('User not found');
         }
 
-        user.verified = true;
-        await user.save();
+        // user.verified = true;
+        // await user.save();
 
         await Token.findByIdAndDelete(tokenExists._id);
 
         return user;
 
-    } catch (error){
+    } catch (error) {
         // console.log(error);
         throw error;
     }
@@ -100,16 +108,26 @@ const login = async (userData) => {
     try {
         const { email, password } = userData;
 
-        // Check if user exists
-        const user = await User.findOne({ email });
+        // console.log(email, password, "Service") 
+
+        // Call Static Method on User model
+
+        const user = await User.login(email, password);
+
+        // console.log(user, "service")
+
+        return user
+
+
     }
     catch (error) {
-        throw error;
+        throw handleAuthValidation(error);
     }
 
 }
 
 module.exports = {
     signup,
-    verifyEmail
+    verifyEmail,
+    login
 };

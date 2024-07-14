@@ -42,14 +42,30 @@ const handleVerifyEmail = async (req, res) => {
 // Handle login
 const handleLogin = async (req, res) => {
     try {
+        const { email, password } = req.body
+
+
+        const user = await authService.login({ email, password });
+
+        if (!user.verified) {
+            return res.status(400).json({ message: "Please verify your email" });
+        }
+
+        // console.log(user, "controller")
+
+        res.status(200).json({user})
+        
+
         
     } catch (error) {
-        
+        console.log(error)
+        res.status(400).json({error})
     }
 
 }   
 
 module.exports = {
     handleSignUp, 
-    handleVerifyEmail
+    handleVerifyEmail,
+    handleLogin
  };
