@@ -1,5 +1,7 @@
 // Description: This file contains the logic for handling the user signup and login requests.
+const { access } = require("fs");
 const authService = require("../services/authService");
+const { createAccessTokenJWT } = require("../utils/helper");
 
 const handleSignUp = async (req, res) => {
     try {
@@ -11,6 +13,8 @@ const handleSignUp = async (req, res) => {
             password,
             phoneNumber
         });
+
+        res.cookie('jwt', '', { maxAge: 1 });
 
         return res
             .status(201)
@@ -51,6 +55,20 @@ const handleLogin = async (req, res) => {
             return res.status(400).json({ message: "Please verify your email" });
         }
 
+        // Create JWT Token
+
+        access_token = createAccessTokenJWT(user._id);
+
+        res.cookie("jwt", access_token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite : "strict",
+            maxAge: process.env.MAX_AGE * 1000 // 1 hour
+        });
+
+        // console.log(access_token, "access token")
+
+        
         // console.log(user, "controller")
 
         res.status(200).json({user})
@@ -58,14 +76,22 @@ const handleLogin = async (req, res) => {
 
         
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         res.status(400).json({error})
     }
 
-}   
+} 
+
+const handleLogout = (req, res) => {
+
+    res.cookie('jwt', '', { maxAge: 1 })
+    // res.clearCookie('jwt');
+    res.status(200).json("User Logged out");
+};
 
 module.exports = {
     handleSignUp, 
     handleVerifyEmail,
-    handleLogin
+    handleLogin,
+    handleLogout
  };

@@ -88,12 +88,12 @@ userSchema.statics.login = async function (email, password) {
         if (user) {
             // Check if password is correct
             const isMatch = await bcrypt.compare(password, user.password);
-            console.log(password, "password")
-            console.log(password, user.password, "isMatch")
+            // console.log(password, "password")
+            // console.log(password, user.password, "isMatch")
             if (isMatch) {
                 return user;
             }
-                throw Error('Invalid password');
+                // throw Error('Invalid password');
         }
         throw Error('Invalid Credentials');
     } catch (error) {
@@ -102,23 +102,6 @@ userSchema.statics.login = async function (email, password) {
         throw error;
     }
 
-    // // console.log(email, password, "static method")
-
-    // if (!email || !password) {
-    //     throw Error('Enter all fields');
-    // }
-    // // Find User by email
-    // const user = await this.findOne({ email });
-
-    // if (user) {
-    // //     // Check if password is correct
-    // //     const isMatch = await bcrypt.compare(password, user.password);
-    // //     if (isMatch) {
-    // //         return user;
-    // //     }
-    // //     // throw Error('Invalid password');
-    // }
-    // throw Error('Invalid Credentials');
 };
 
 const User = new mongoose.model("User", userSchema)
