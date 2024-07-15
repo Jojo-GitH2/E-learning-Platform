@@ -39,7 +39,8 @@ const signup = async (userData) => {
 
         const token = new Token({
             userId: savedUser._id,
-            token: helper.generateToken()
+            token: helper.generateToken(),
+            type: 'emailVerification'
         });
 
         await token.save();
@@ -126,8 +127,47 @@ const login = async (userData) => {
 
 }
 
+const forgotPassword = async (email) => {
+    try {
+        const user = await User.findOne({ email })
+
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+
+        // create token
+
+        const token = new Token({
+            userId: user._id,
+            token: helper.generateToken(),
+            type: 'passwordReset'
+        });
+
+        await token.save();
+
+        // Send email to user to reset password
+
+        const resetLink = `${process.env.BASE_URL}/api/v1/users/reset-password/${token.token}`
+        const emailTemplate = fs.readFileSync('./templates/forgotPassword.html', 'utf-8');
+        let emailContent = emailTemplate.replace('{{resetLink}}', resetLink);
+        emailContent = emailContent.replace('{{fullName}}', user.fullName);
+
+
+        await sendEmail(user.email, 'Forgot Password', emailContent)
+
+        // console.log(user, "userService")
+
+
+        return token;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
 module.exports = {
     signup,
     verifyEmail,
-    login
+    login,
+    forgotPassword
 };
