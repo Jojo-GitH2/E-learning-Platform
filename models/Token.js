@@ -11,6 +11,11 @@ const TokenSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    type: {
+        type: String,
+        enum: ['emailVerification', 'passwordReset'],
+        required: true,
+    }
 
     // createdAt: {
     //     type: Date,

@@ -3,23 +3,23 @@ const { handleAuthValidation } = require('../utils/validation');
 const helper = require('../utils/helper');
 const Token = require('../models/Token');
 const fs = require('fs');
-const {sendEmail} = require('../services/emailService');
+const { sendEmail } = require('../services/emailService');
 
 const signup = async (userData) => {
     try {
 
         // Check if email already exists
         const userExists = await User.findOne({
-           
-                email: userData.email
+
+            email: userData.email
         });
 
-        
+
 
         if (userExists) {
             throw new Error(
                 "11000"
-                )
+            )
         };
 
 
@@ -39,7 +39,8 @@ const signup = async (userData) => {
 
         const token = new Token({
             userId: savedUser._id,
-            token: helper.generateToken()
+            token: helper.generateToken(),
+            type: 'emailVerification'
         });
 
         await token.save();
@@ -47,7 +48,7 @@ const signup = async (userData) => {
 
         // Send verification email
 
-        const verificationLink = `${process.env.BASE_URL}/api/v1/users/verify-email?token=${token.token}`
+        const verificationLink = `${process.env.BASE_URL}/api/v1/users/verify-email/${token.token}`
         const emailTemplate = fs.readFileSync('./templates/verifyEmail.html', 'utf-8');
         let emailContent = emailTemplate.replace('{{verificationLink}}', verificationLink);
         emailContent = emailContent.replace('{{fullName}}', savedUser.fullName);
@@ -77,26 +78,96 @@ const verifyEmail = async (token) => {
             throw new Error('Invalid verification link');
         }
 
-        const user = await User.findById(tokenExists.userId);
+        const user = await User.findOneAndUpdate(
+            {
+                _id:
+                    tokenExists.userId
+            },
+            {
+                $set:
+                    { verified: true }
+            });
 
         if (!user) {
             throw new Error('User not found');
         }
 
-        user.verified = true;
-        await user.save();
+        // user.verified = true;
+        // await user.save();
 
         await Token.findByIdAndDelete(tokenExists._id);
 
         return user;
 
-    } catch (error){
+    } catch (error) {
         // console.log(error);
         throw error;
     }
 }
 
+const login = async (userData) => {
+    try {
+        const { email, password } = userData;
+
+        // console.log(email, password, "Service") 
+
+        // Call Static Method on User model
+
+        const user = await User.login(email, password);
+
+        // console.log(user, "service")
+
+        return user
+
+
+    }
+    catch (error) {
+        throw handleAuthValidation(error);
+    }
+
+}
+
+const forgotPassword = async (email) => {
+    try {
+        const user = await User.findOne({ email })
+
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+
+        // create token
+
+        const token = new Token({
+            userId: user._id,
+            token: helper.generateToken(),
+            type: 'passwordReset'
+        });
+
+        await token.save();
+
+        // Send email to user to reset password
+
+        const resetLink = `${process.env.BASE_URL}/api/v1/users/reset-password/${token.token}`
+        const emailTemplate = fs.readFileSync('./templates/forgotPassword.html', 'utf-8');
+        let emailContent = emailTemplate.replace('{{resetLink}}', resetLink);
+        emailContent = emailContent.replace('{{fullName}}', user.fullName);
+
+
+        await sendEmail(user.email, 'Forgot Password', emailContent)
+
+        // console.log(user, "userService")
+
+
+        return token;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
 module.exports = {
     signup,
-    verifyEmail
+    verifyEmail,
+    login,
+    forgotPassword
 };

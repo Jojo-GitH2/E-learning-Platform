@@ -26,6 +26,23 @@ const handleAuthValidation = (error) => {
         errorMessages.email = "email already exists";
     }
 
+    // Invalid Credentials
+    if (error.message === 'Invalid Credentials') {
+        errorMessages.email = 'Invalid Credentials';
+        errorMessages.password = 'Invalid Credentials';
+    }
+
+    // Empty fields
+    if (error.message === 'Enter all fields') {
+        errorMessages.email = 'Enter all fields';
+        errorMessages.password = 'Enter all fields';
+    }
+
+    // Invalid password
+    if (error.message === 'Invalid password') {
+        errorMessages.password = 'Invalid password';
+    }
+
     return errorMessages;
 
 

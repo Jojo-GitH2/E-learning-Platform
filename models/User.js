@@ -1,7 +1,7 @@
 
 const mongoose = require("mongoose");
 
-const { isEmail, isMobilePhone, isStrongPassword} = require("validator");
+const { isEmail, isMobilePhone, isStrongPassword } = require("validator");
 
 const bcrypt = require("bcryptjs");
 
@@ -66,9 +66,43 @@ const userSchema = new mongoose.Schema(
 // Mongoose hooks to hash password before saving to DB
 userSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt();
+    console.log(this.password, "password")
     this.password = await bcrypt.hash(this.password, salt);
+    console.log(this.password, "passwordhashed")
     next();
 });
+
+// Create a Mongoose static method for login
+userSchema.statics.login = async function (email, password) {
+    try {
+        // console.log(email, password, "static method")
+
+        if (!email || !password) {
+            throw Error('Enter all fields');
+        }
+        // Find User by email
+        const user = await this.findOne({ email });
+
+        // console.log(user, "user")
+
+        if (user) {
+            // Check if password is correct
+            const isMatch = await bcrypt.compare(password, user.password);
+            // console.log(password, "password")
+            // console.log(password, user.password, "isMatch")
+            if (isMatch) {
+                return user;
+            }
+                // throw Error('Invalid password');
+        }
+        throw Error('Invalid Credentials');
+    } catch (error) {
+
+        // console.log(error.message)
+        throw error;
+    }
+
+};
 
 const User = new mongoose.model("User", userSchema)
 
