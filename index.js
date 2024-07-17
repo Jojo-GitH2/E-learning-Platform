@@ -4,6 +4,8 @@ const dotenv = require("dotenv").config()
 const connectDB = require("./config/db")
 const authRoutes = require("./routes/authRoutes")
 const cookieParser = require("cookie-parser")
+const courseRouter = require("./routes/courseRoutes")
+
 
 const app = express();
 app.use(express.json());
@@ -36,3 +38,18 @@ app.get("/", (req, res) => {
 // Routes for Users
 
 app.use("/api/v1/users", authRoutes);
+
+//Routes for Courses
+
+app.use("/api/v2/course", courseRouter)
+
+app.post("/add-course",async(req,res)=>{
+    return res.status(200).json({message:"Course selected successfully"})
+})
+
+app.post("/add-course",)
+
+
+app.post("/all-courses",async(req,res)=>{
+    return res.status(200).json({message:"Course selected successfully"})
+})

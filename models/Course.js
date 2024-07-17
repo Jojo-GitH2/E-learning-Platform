@@ -3,19 +3,25 @@ const mongoose = require("mongoose")
 const CourseSchema= new mongoose.Schema(
 
     {
-        title: {
+        courseTitle: {
             type: String,
-            required: [true, "please select your chosen course"]
+            required: [true, "please select the title"]
         },
 
-        duration:{
+        courseCode:{
             type: String,
-            required:[ true, "Please provide the course duration"]
+            required: [true, "please select the course code"]
+
         },
 
-         description: {
+        courseCategory:{
             type: String,
-            required: [true, "please provide the course description"] 
+            required:[ true, "Please select the course category"]
+        },
+
+         courseDuration: {
+            type: String,
+            required: [true, "please select the course duration"] 
          },
 
          active:{
