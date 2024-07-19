@@ -41,15 +41,15 @@ app.use("/api/v1/users", authRoutes);
 
 //Routes for Courses
 
-app.use("/api/v2/course", courseRouter)
+app.use("/api/v2/courses", courseRouter)
 
 app.post("/add-course",async(req,res)=>{
     return res.status(200).json({message:"Course selected successfully"})
 })
 
-app.post("/add-course",)
+//app.post("/add-course",)
 
 
-app.post("/all-courses",async(req,res)=>{
-    return res.status(200).json({message:"Course selected successfully"})
-})
+app
+
+app

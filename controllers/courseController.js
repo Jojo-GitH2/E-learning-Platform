@@ -1,5 +1,8 @@
+
 const handleAddCourse = async(req,res)=>{
     
+
+    //Adding a course
    try{
    
     const {courseTitle, courseCode,  courseCategory ,courseDuration } =req.body
@@ -46,6 +49,52 @@ catch (error) {
 }}
 
 
+//To get all courses
+
+const handleGetAllCourses = async(req,res)=>{
+    
+    try{
+
+        const courses = await Courses.find()
+         return res.status(200).json({
+            message:"Successful",
+            count: courses.length,
+            courses
+            
+    })
+}
+
+    catch(error){
+        return res.status(400).json({error})
+    }
+    
+}
+
+//To get one course
+
+const handleGetOneCourse =async(req,res)=>{
+    
+
+try{
+    const{id }= req.params
+    const course= await Course.findById(id)
+    return res.status(200).json
+    ({message:"successful"})
+
+
+
+}
+catch(error){
+    return res.status(400).json({error})
+
+}}
+    
+    
+    
+
+
 module.exports ={
       handleAddCourse,
+      handleGetAllCourses,
+      handleGetOneCourse,
 }
