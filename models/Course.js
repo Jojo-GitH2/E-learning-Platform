@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const CourseSchema= new mongoose.Schema(
+const courseSchema= new mongoose.Schema(
 
     {
         courseTitle: {
@@ -25,12 +25,15 @@ const CourseSchema= new mongoose.Schema(
          },
 
          active:{
-            type: {Boolean,default: true}
+            type: Boolean,
+                default: true
          }
 
 
     }
 
-
-
+ 
 )
+ const Course = new mongoose.model("Course", courseSchema)
+
+ module.exports =Course
