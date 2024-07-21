@@ -43,10 +43,24 @@ app.use("/api/v1/users", authRoutes);
 
 app.use("/api", courseRouter)
 
+<<<<<<< HEAD
 //app.post("/add-course",async(req,res)=>{
     //return res.status(200).json({message:"Course selected successfully"})
 //})
+=======
+app.post("/add-course",async(req,res)=>{
+    return res.status(200).json({message:"Course selected successfully"})
 
+})
+//app.post("/add-course",)
+>>>>>>> 4ecba3a8d65a3de1a6169b8fee52d6b6e3d253ae
+
+//app.post("/add-course",)
+app
+
+//app.get("/all-courses",async(req,res)=>{
+    //return res.status(200).json({message:"Course selected successfully"})}
+//)
 
 app.patch("/update-course-Code",async(req,res)=> {
     return res.status(200).json({message:"Coursecode updated successful"})
@@ -55,5 +69,6 @@ app.patch("/update-course-Code",async(req,res)=> {
 
 app
 app
+
 
 app
