@@ -1,0 +1,74 @@
+2024-07-23T21:23:39.353Z info: Server started on port 1080
+2024-07-23T21:25:50.135Z info: ::1 - - [23/Jul/2024:21:25:50 +0000] "GET /api/register HTTP/1.1" 404 151 "-" "PostmanRuntime/7.37.3"
+2024-07-23T21:26:26.179Z info: ::1 - - [23/Jul/2024:21:26:26 +0000] "GET /api/register HTTP/1.1" 404 151 "-" "PostmanRuntime/7.37.3"
+2024-08-04T21:13:37.215Z info: Server started on port 1080
+2024-08-04T21:14:37.810Z info: Server started on port 1080
+2024-08-05T18:13:41.239Z info: Server started on port 1080
+2024-08-05T18:17:39.584Z info: Server started on port 1080
+2024-08-05T18:18:27.364Z info: ::1 - - [05/Aug/2024:18:18:27 +0000] "GET /api/signup HTTP/1.1" 404 149 "-" "PostmanRuntime/7.37.3"
+2024-08-05T18:18:37.955Z info: ::1 - - [05/Aug/2024:18:18:37 +0000] "POST /api/signup HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T18:21:19.308Z info: ::1 - - [05/Aug/2024:18:21:19 +0000] "POST /api/signup HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T18:24:55.525Z info: ::1 - - [05/Aug/2024:18:24:55 +0000] "GET /api/v1/auth/register HTTP/1.1" 404 159 "-" "PostmanRuntime/7.37.3"
+2024-08-05T18:25:04.980Z info: ::1 - - [05/Aug/2024:18:25:04 +0000] "POST /api/v1/auth/register HTTP/1.1" 404 160 "-" "PostmanRuntime/7.37.3"
+2024-08-05T18:42:56.183Z info: Server started on port 1080
+2024-08-05T18:43:26.741Z info: Server started on port 1080
+2024-08-05T18:46:48.245Z info: Server started on port 1080
+2024-08-05T18:49:58.240Z info: Server started on port 1080
+2024-08-05T19:03:41.536Z info: Server started on port 1080
+2024-08-05T19:03:58.324Z info: ::1 - - [05/Aug/2024:19:03:58 +0000] "POST /api/v1/auth/register HTTP/1.1" 404 160 "-" "PostmanRuntime/7.37.3"
+2024-08-05T19:04:32.676Z info: ::1 - - [05/Aug/2024:19:04:32 +0000] "POST /api/v1/auth/register HTTP/1.1" 404 160 "-" "PostmanRuntime/7.37.3"
+2024-08-05T19:05:37.419Z info: ::1 - - [05/Aug/2024:19:05:37 +0000] "POST /api/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T19:05:51.582Z info: ::1 - - [05/Aug/2024:19:05:51 +0000] "POST /register HTTP/1.1" 404 148 "-" "PostmanRuntime/7.37.3"
+2024-08-05T19:06:12.608Z info: ::1 - - [05/Aug/2024:19:06:12 +0000] "POST /api/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:38:40.161Z info: Server started on port 1080
+2024-08-05T21:40:45.499Z info: ::1 - - [05/Aug/2024:21:40:45 +0000] "POST /api/v1/register HTTP/1.1" 404 155 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:41:28.970Z info: ::1 - - [05/Aug/2024:21:41:28 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 86 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:42:11.619Z info: ::1 - - [05/Aug/2024:21:42:11 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:44:45.857Z info: ::1 - - [05/Aug/2024:21:44:45 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 86 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:49:12.200Z info: ::1 - - [05/Aug/2024:21:49:12 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:54:20.457Z info: ::1 - - [05/Aug/2024:21:54:20 +0000] "GET /api/v1/auth/register HTTP/1.1" 404 159 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:56:34.779Z info: Server started on port 1080
+2024-08-05T21:56:48.185Z info: ::1 - - [05/Aug/2024:21:56:48 +0000] "GET /api/register HTTP/1.1" 404 151 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:57:26.359Z info: ::1 - - [05/Aug/2024:21:57:26 +0000] "GET /api/register HTTP/1.1" 404 151 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:57:53.847Z info: ::1 - - [05/Aug/2024:21:57:53 +0000] "GET /register HTTP/1.1" 404 147 "-" "PostmanRuntime/7.37.3"
+2024-08-05T21:59:59.169Z info: Server started on port 1080
+2024-08-05T22:00:43.745Z info: ::1 - - [05/Aug/2024:22:00:43 +0000] "GET /api/v1/users HTTP/1.1" 404 151 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:01:10.663Z info: ::1 - - [05/Aug/2024:22:01:10 +0000] "POST /api/v1/register HTTP/1.1" 400 86 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:03:44.758Z info: ::1 - - [05/Aug/2024:22:03:44 +0000] "POST /api/v1/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:12:05.134Z info: Server started on port 1080
+2024-08-05T22:12:29.745Z info: Server started on port 1080
+2024-08-05T22:13:15.261Z info: ::1 - - [05/Aug/2024:22:13:15 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:15:46.297Z info: ::1 - - [05/Aug/2024:22:15:46 +0000] "GET /api/v1/auth/admin/dashboard HTTP/1.1" 404 166 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:16:17.097Z info: ::1 - - [05/Aug/2024:22:16:17 +0000] "GET /api/admin/dashboard HTTP/1.1" 404 158 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:17:52.487Z info: ::1 - - [05/Aug/2024:22:17:52 +0000] "GET /api/v1/auth/login HTTP/1.1" 404 156 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:18:45.211Z info: Server started on port 1080
+2024-08-05T22:20:41.203Z info: Server started on port 1080
+2024-08-05T22:21:24.003Z info: ::1 - - [05/Aug/2024:22:21:24 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:24:04.023Z info: Server started on port 1080
+2024-08-05T22:24:09.252Z info: ::1 - - [05/Aug/2024:22:24:09 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:25:08.380Z info: Server started on port 1080
+2024-08-05T22:25:17.272Z info: ::1 - - [05/Aug/2024:22:25:17 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:29:31.110Z info: Server started on port 1080
+2024-08-05T22:29:48.952Z info: ::1 - - [05/Aug/2024:22:29:48 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 132 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:31:23.127Z info: ::1 - - [05/Aug/2024:22:31:23 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 135 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:31:38.994Z info: ::1 - - [05/Aug/2024:22:31:38 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:37:16.291Z info: ::1 - - [05/Aug/2024:22:37:16 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:38:52.436Z info: Server started on port 1080
+2024-08-05T22:38:58.008Z info: ::1 - - [05/Aug/2024:22:38:58 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 48 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:46:36.117Z info: Server started on port 1080
+2024-08-05T22:49:09.965Z info: Server started on port 1080
+2024-08-05T22:51:04.049Z info: Server started on port 1080
+2024-08-05T22:52:34.235Z info: ::1 - - [05/Aug/2024:22:52:34 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 48 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:52:45.866Z info: ::1 - - [05/Aug/2024:22:52:45 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 48 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:56:58.289Z info: Server started on port 1080
+2024-08-05T22:57:06.076Z info: ::1 - - [05/Aug/2024:22:57:06 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 100 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:57:21.786Z info: ::1 - - [05/Aug/2024:22:57:21 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 100 "-" "PostmanRuntime/7.37.3"
+2024-08-05T22:57:36.032Z info: ::1 - - [05/Aug/2024:22:57:36 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 141 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:01:40.602Z info: ::1 - - [05/Aug/2024:23:01:40 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 32 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:01:58.220Z info: ::1 - - [05/Aug/2024:23:01:58 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 140 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:02:22.899Z info: ::1 - - [05/Aug/2024:23:02:22 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 45 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:02:34.664Z info: ::1 - - [05/Aug/2024:23:02:34 +0000] "POST /api/v1/auth/register HTTP/1.1" 400 32 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:05:04.544Z info: ::1 - - [05/Aug/2024:23:05:04 +0000] "POST /api/v1/auth/login HTTP/1.1" 400 12 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:06:22.667Z info: ::1 - - [05/Aug/2024:23:06:22 +0000] "GET /api/v1/user/dashboard HTTP/1.1" 500 33 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:07:55.165Z info: ::1 - - [05/Aug/2024:23:07:55 +0000] "GET /api/v1/user/dashboard HTTP/1.1" 401 30 "-" "PostmanRuntime/7.37.3"
+2024-08-05T23:21:23.980Z info: Server started on port 1080
